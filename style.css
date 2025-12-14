@@ -5,7 +5,7 @@
 h1 {
     display: flex;
     justify-content: center;
-    color: white;
+    color: rgb(221, 221, 145);
 }
 
 body {
