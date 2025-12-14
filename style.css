@@ -1,0 +1,165 @@
+* {
+    font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+body {
+    background: #140606;
+    background: linear-gradient(8deg, rgba(20, 6, 6, 1) 15%, rgba(207, 190, 190, 1) 48%, rgba(15, 15, 61, 1) 95%);
+}
+
+.main {
+    width: 99%;
+    height: 100vh;
+    /* border: 2px solid black; */
+    margin: 5px;
+
+}
+
+.form {
+    /* border: 2px solid black; */
+    /* margin:15px 10px; */
+    padding: 13px 15px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form label {
+    font-size: 20px;
+}
+
+.form input {
+    padding: 15px 15px;
+    margin: 0 8px;
+    font-size: 16px;
+    border-radius: 13px;
+}
+
+.form input:focus {
+    border: 1px solid blue;
+    box-shadow: 1px 1px 13px 4px blue;
+    transition: all 0.3s ease;
+}
+
+
+.search-btn button {
+    padding: 20px 30px;
+    background-color: hsl(240, 55%, 60%);
+    color: white;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.5rem;
+}
+
+button:active {
+    background-color: hsl(240, 48%, 50%);
+}
+
+.search-btn {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.info {
+    max-width: 90%;
+    margin: 10px auto;
+    height: 500px;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokeInformation {
+    border: none;
+    margin: 10px;
+    width: 75vw;
+    height: auto;
+    padding: 30px;
+    border-radius: 20px;
+    /* background: linear-gradient(120deg, #f7971e 0%, #ffd200 100%); */
+    background: none;
+    ;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+}
+
+
+.pokemon-stats {
+    width: 50%;
+    height: auto;
+    margin: 15px 30px;
+}
+
+.pokemon-stats h2 {
+    font-size: 2.5rem;
+}
+
+.poke-images {
+    max-width: 40%;
+    height: auto;
+    margin: auto;
+}
+
+.poke-images img {
+    margin: 18px 0;
+}
+
+.poke-images span {
+    margin: 0 30px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.3rem;
+    /* text-decoration: underline black; */
+}
+
+#shiny-version {
+    margin: 0;
+}
+
+/* responsivenss  */
+
+@media (max-width: 904px) {
+    .pokeInformation {
+        margin-top: 70px;
+        /* border: 2px solid red; */
+    }
+}
+
+@media (max-width:508px) {
+    .pokeInformation {
+        min-height: 600px;
+        width: 500px;
+        margin: auto;
+    }
+}
+
+@media(max-width:572px) {
+    .form {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 0 20px;
+        margin: 0 10px;
+        
+    }
+
+    .search-btn button {
+        padding: 13px 19px;
+        background-color: hsl(240, 55%, 60%);
+        color: white;
+        border-radius: 50px;
+        border: none;
+        font-size: 1rem;
+    }
+}
