@@ -9,7 +9,7 @@ h1 {
 }
 
 body {
-    background: #140606;
+    background: white;
     background: linear-gradient(8deg, rgba(20, 6, 6, 1) 15%, rgba(207, 190, 190, 1) 48%, rgba(15, 15, 61, 1) 95%);
 }
 
