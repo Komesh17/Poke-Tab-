@@ -11,6 +11,40 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
+
+    <style>
+        /* Suggestion dropdown styles */
+        .search-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        #suggestion-box {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #1e1e2e;
+            border: 1px solid #555;
+            border-radius: 6px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 999;
+            display: none;
+        }
+
+        #suggestion-box li {
+            list-style: none;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        #suggestion-box li:hover {
+            background-color: #3a3a5c;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,19 +54,23 @@
     <div class="main">
         
         <div class="form">
-            <label for="Enter Pokemon name or id">Enter Pokemon name or id :  </label>
-            <input type="text" id="pokemonName" placeholder="Type Something">
+            <label for="pokemonName">Enter Pokemon name or id : </label>
+            <!-- Wrapped input in a relative div for dropdown positioning -->
+            <div class="search-wrapper">
+                <input type="text" id="pokemonName" placeholder="Type Something" autocomplete="off">
+                <ul id="suggestion-box"></ul>
+            </div>
         </div>
         <div class='search-btn'>
-            <button  onclick="fetchData()">Find Pokemon</button>
+            <button onclick="fetchData()">Find Pokemon</button>
         </div>
         <div class="info">
             <div class="pokeInformation" style="color:white;">
                 <div class="poke-images">
                     
-                    <img src="" alt="" id="Pokemon" style= width:134px; height:fit-content; ">
+                    <img src="" alt="" id="Pokemon" style="width:134px; height:fit-content;">
                     <span>shiny -> </span>
-                    <img src="" alt="" id="shiny-version" style= width:134px; height:fit-content;>
+                    <img src="" alt="" id="shiny-version" style="width:134px; height:fit-content;">
                 </div>
 
                 <div class="pokemon-stats">
