@@ -2,7 +2,70 @@ console.log("This is fetch api ")
 
 // fetch = Function used for making HTTP requests and fetch resources, (JSOn style data, images, files) Simplifies asynchoronous data fetching in javascript and used for interacting with APIs to retrive and send data asynchronously over the web. 
 // Fetch Syntax: fetch ((url, {options})
-fetchData()
+
+// ---- AUTOCOMPLETE FEATURE ----
+
+let allPokemonNames = [];
+
+async function loadAllPokemon() {
+    try {
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1500');
+        const data = await response.json();
+        allPokemonNames = data.results.map(p => p.name);
+        console.log(`Loaded ${allPokemonNames.length} Pokémon names for suggestions`);
+    } catch (err) {
+        console.error("Could not load Pokémon list for suggestions", err);
+    }
+}
+
+// Wait for HTML to fully load before grabbing elements
+document.addEventListener('DOMContentLoaded', function () {
+
+    const inputField = document.getElementById('pokemonName');
+    const suggestionBox = document.getElementById('suggestion-box');
+
+    inputField.addEventListener('input', function () {
+        const typed = this.value.toLowerCase().trim();
+        suggestionBox.innerHTML = '';
+
+        if (typed.length === 0) {
+            suggestionBox.style.display = 'none';
+            return;
+        }
+
+        const matches = allPokemonNames.filter(name => name.startsWith(typed)).slice(0, 8);
+
+        if (matches.length === 0) {
+            suggestionBox.style.display = 'none';
+            return;
+        }
+
+        matches.forEach(name => {
+            const li = document.createElement('li');
+            li.textContent = name;
+            li.addEventListener('click', function () {
+                inputField.value = name;
+                suggestionBox.style.display = 'none';
+                fetchData();
+            });
+            suggestionBox.appendChild(li);
+        });
+
+        suggestionBox.style.display = 'block';
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!inputField.contains(e.target) && !suggestionBox.contains(e.target)) {
+            suggestionBox.style.display = 'none';
+        }
+    });
+
+    // Load pokemon names on page ready
+    loadAllPokemon();
+});
+
+// ---- YOUR ORIGINAL FETCH FUNCTION (unchanged) ----
+
 
 async function fetchData() {
 
@@ -65,4 +128,3 @@ async function fetchData() {
         console.error(err)
     }
 }
-
